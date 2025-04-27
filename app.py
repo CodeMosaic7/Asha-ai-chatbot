@@ -18,10 +18,47 @@ from chatbot.retrieval import retrieve_context
 from chatbot.prompt import build_prompt_template
 from huggingface_hub import login
 import os
+from streamlit_lottie import st_lottie
+import requests
+
+
+def load_lottieurl(url: str):
+    r = requests.get(url)
+    if r.status_code != 200:
+        return None
+    return r.json()
+
+
+lottie_chat = load_lottieurl(
+    "https://assets7.lottiefiles.com/packages/lf20_qp1q7mct.json"
+)
+
+st_lottie(lottie_chat, height=300, key="chat")
+
+st.markdown(
+    """
+    <style>
+    .stApp {
+        font-family: 'Courier New', monospace; /* Typewriter font */
+    }
+    .big-font {
+        font-size: 36px !important;
+        color: #4CAF50;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Display header
+st.markdown('<div class="big-font">Welcome!</div>', unsafe_allow_html=True)
 
 
 def main():
-    st.title("🔍 Women-Focused Jobs Assistant")
+    st.title("🔍 ASHA AI CHATBOT")
     st.write("This AI assistant helps find women-focused job opportunities.")
 
     dotenv.load_dotenv()
@@ -35,9 +72,10 @@ def main():
         "https://internshala.com/internships/work-from-home-internships/women/",
         "https://www.womenwhocode.com/jobs",
         "https://www.womentech.net/jobs",
+        "https://internshala.com/jobs-for-women/",
+        "https://apna.co/jobs/female-jobs-in-lucknow",
     ]
     print("Data loaded from URLs: ", URLs)
-    st.sidebar.title("Settings")
     hf_token = os.environ.get("HF_TOKEN")
     login(hf_token)
 
@@ -63,7 +101,7 @@ def main():
         with st.spinner("Retrieving context and generating answer..."):
             context = retrieve_context(user_query, index=index, embeddings=embeddings)
             full_prompt = prompt_template.format(context=context, question=user_query)
-            response = llm.predict(full_prompt)
+            response = llm.invoke(full_prompt)
 
             st.success("Answer:")
             st.write(response)

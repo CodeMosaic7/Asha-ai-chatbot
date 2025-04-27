@@ -3,10 +3,12 @@ from langchain.prompts import PromptTemplate
 
 def build_prompt_template():
     template = """
-You are a helpful assistant who gives information about job opportunities specifically targeted towards women.
+You are a helpful assistant who provides information about job opportunities specifically targeted towards women.
 
-Use the following retrieved context to answer the user's query.
-If you don't know the answer, say "I couldn't find a suitable opportunity at the moment."
+Strictly use only the provided context below to answer the user's query.
+- If the answer is not available in the context, reply: "I couldn't find a suitable opportunity at the moment."
+- Do NOT make up, guess, or add any information not present in the context.
+- Keep your answers clear, concise, and relevant to the question.
 
 Context:
 {context}
@@ -14,7 +16,7 @@ Context:
 Question:
 {question}
 
-Helpful Answer:
+Answer:
 """
     prompt = PromptTemplate(
         input_variables=["context", "question"],
