@@ -1,5 +1,3 @@
----
-
 # 🚀 ASHA - Your Helpful AI Assistant
 
 **A Retrieval-Augmented Generation (RAG) Chatbot using GPT-2, LangChain, Pinecone, and Streamlit**
