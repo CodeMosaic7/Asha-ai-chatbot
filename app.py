@@ -5,6 +5,9 @@
 # for k in list(original_modules.keys()):
 #     if k.startswith("torch"):
 #         sys.modules.pop(k)
+import os
+
+os.environ["STREAMLIT_SERVER_ENABLE_FILE_WATCHER"] = "false"
 
 import streamlit as st
 import dotenv
@@ -17,9 +20,10 @@ from chatbot.util import download_nltk
 from chatbot.retrieval import retrieve_context
 from chatbot.prompt import build_prompt_template
 from huggingface_hub import login
-import os
+
 from streamlit_lottie import st_lottie
 import requests
+import re
 
 
 def load_lottieurl(url: str):
@@ -102,9 +106,11 @@ def main():
             context = retrieve_context(user_query, index=index, embeddings=embeddings)
             full_prompt = prompt_template.format(context=context, question=user_query)
             response = llm.invoke(full_prompt)
-
+            pattern = """You are a helpful assistant who provides information about job opportunities specifically targeted towards women\.\n\nStrictly use only the provided context below to answer the user's query\.\n\nIf the answer is not available in the context, reply: "I couldn't find a suitable opportunity at the moment\."\nDo NOT make up, guess, or add any information not present in the context\.\nKeep your answers clear,
+            concise, and relevant to the question\.\nContext: Here are some of the top companies offering job opportunities for women:"""
+            result = re.sub(pattern, " ", response)
             st.success("Answer:")
-            st.write(response)
+            st.write(result)
 
 
 if __name__ == "__main__":
