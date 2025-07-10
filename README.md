@@ -134,4 +134,13 @@ Feel free to use, modify, and distribute it!
 * [Streamlit](https://streamlit.io/)
 
 ```
+## Screenshots
+<img width="1842" height="758" alt="image" src="https://github.com/user-attachments/assets/61332f82-ad98-4fe9-9935-bd5528722dfc" />
+
+<img width="1836" height="845" alt="image" src="https://github.com/user-attachments/assets/1d2e59c0-1450-49f0-8671-31ce43ac9a03" />
+
+<img width="1835" height="782" alt="image" src="https://github.com/user-attachments/assets/a7b052b8-501c-46a2-b871-04718bbea611" />
+
+
+
 ```
