@@ -1,12 +1,12 @@
 
-# 🚀 ASHA - Your Helpful AI Assistant
+# 🚀 Job Finder AI - Your Helpful AI Assistant
 
 **A Retrieval-Augmented Generation (RAG) Chatbot using Groq, LangChain, Pinecone, and Streamlit**
 
 
 
 ## 📜 Overview
-**ASHA** is a Retrieval-Augmented Generation (RAG) based chatbot designed to give intelligent, contextual answers.  
+It is a Retrieval-Augmented Generation (RAG) based chatbot designed to give intelligent, contextual answers.  
 It uses **LangChain** to manage retrieval and generation, **Pinecone** for storing and querying vectors, **Groq API** for fast large language model (LLM) inference, and a **Streamlit** app for the frontend.
 
 ---
@@ -135,11 +135,11 @@ Feel free to use, modify, and distribute it!
 
 ```
 ## Screenshots
-<img width="1842" height="758" alt="image" src="https://github.com/user-attachments/assets/61332f82-ad98-4fe9-9935-bd5528722dfc" />
+![Screenshot 1](https://github.com/user-attachments/assets/61332f82-ad98-4fe9-9935-bd5528722dfc)
 
-<img width="1836" height="845" alt="image" src="https://github.com/user-attachments/assets/1d2e59c0-1450-49f0-8671-31ce43ac9a03" />
+![Screenshot 2](https://github.com/user-attachments/assets/1d2e59c0-1450-49f0-8671-31ce43ac9a03)
 
-<img width="1835" height="782" alt="image" src="https://github.com/user-attachments/assets/a7b052b8-501c-46a2-b871-04718bbea611" />
+![Screenshot 3](https://github.com/user-attachments/assets/a7b052b8-501c-46a2-b871-04718bbea611)
 
 
 
