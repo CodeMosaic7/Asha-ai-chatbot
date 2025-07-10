@@ -1,9 +1,9 @@
-```
+
 # 🚀 ASHA - Your Helpful AI Assistant
 
 **A Retrieval-Augmented Generation (RAG) Chatbot using Groq, LangChain, Pinecone, and Streamlit**
 
----
+
 
 ## 📜 Overview
 **ASHA** is a Retrieval-Augmented Generation (RAG) based chatbot designed to give intelligent, contextual answers.  
